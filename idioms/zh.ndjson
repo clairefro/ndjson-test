@@ -1,10 +1,10 @@
 {"id": "zh_1", "idiom": "头头是道", "language": "zh", "literal": "head head is path", "meaning": "to be clear and logical", "body_parts": ["head"], "affects": ["clarity", "confidence"]}
 {"id": "zh_2", "idiom": "摇头摆尾", "language": "zh", "literal": "shake head wag tail", "meaning": "to be pleased with oneself", "body_parts": ["head", "tail"], "affects": ["pride", "self-satisfaction"]}
-{"id": "zh_3", "idiom": "拍手叫好", "language": "zh", "literal": "clap hands and shout good", "meaning": "to applaud or praise enthusiastically", "body_parts": ["hands", "mouth"], "affects": ["approval", "admiration"]}
+{"id": "zh_3", "idiom": "拍手叫好", "language": "zh", "literal": "clap hands and shout good", "meaning": "to applaud or praise enthusiastically", "body_parts": ["hand", "mouth"], "affects": ["approval", "admiration"]}
 {"id": "zh_4", "idiom": "眉开眼笑", "language": "zh", "literal": "eyebrows open eyes smile", "meaning": "to beam with joy", "body_parts": ["eyes", "eyebrows"], "affects": ["happiness", "contentment"]}
 {"id": "zh_5", "idiom": "挠头", "language": "zh", "literal": "scratch head", "meaning": "to be puzzled or unsure", "body_parts": ["head"], "affects": ["confusion", "uncertainty"]}
 {"id": "zh_6", "idiom": "咬牙切齿", "language": "zh", "literal": "grit teeth cut teeth", "meaning": "to gnash one’s teeth in anger", "body_parts": ["teeth"], "affects": ["anger", "frustration"]}
-{"id": "zh_7", "idiom": "洗耳恭听", "language": "zh", "literal": "wash ears respectfully listen", "meaning": "to listen respectfully and attentively", "body_parts": ["ears"], "affects": ["respect", "attention"]}
+{"id": "zh_7", "idiom": "洗耳恭听", "language": "zh", "literal": "wash ears respectfully listen", "meaning": "to listen respectfully and attentively", "body_parts": ["ear"], "affects": ["respect", "attention"]}
 {"id": "zh_8", "idiom": "口是心非", "language": "zh", "literal": "mouth says heart different", "meaning": "to say one thing but mean another", "body_parts": ["mouth", "heart"], "affects": ["deception", "conflict"]}
 {"id": "zh_9", "idiom": "心花怒放", "language": "zh", "literal": "heart flowers bloom", "meaning": "to feel elated or overjoyed", "body_parts": ["heart"], "affects": ["joy", "delight"]}
 {"id": "zh_10", "idiom": "脚踏实地", "language": "zh", "literal": "feet step solid ground", "meaning": "to be steady and practical", "body_parts": ["feet"], "affects": ["stability", "groundedness"]}
