@@ -38,4 +38,4 @@ function renderIdiom(idiom) {
 }
 
 // Start streaming
-streamNDJSON("idioms.ndjson", renderIdiom);
+streamNDJSON("items.ndjson", renderIdiom);
