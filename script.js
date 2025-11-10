@@ -4,6 +4,7 @@ const itemCountEl = document.getElementById("item-count");
 const bodyFilter = document.getElementById("bodypart-select");
 const clearFiltersBtn = document.getElementById("clear-filters");
 const languageSelect = document.getElementById("language-select");
+const wordCloudEl = document.getElementById("word-cloud");
 
 // Get languages from dropdown options
 const languages = Array.from(languageSelect.options).map((opt) => opt.value);
@@ -18,6 +19,49 @@ let allIdioms = [];
 // Update item count display
 function updateItemCount(count) {
   itemCountEl.textContent = `Items: ${count}`;
+}
+
+// Generate and update word cloud from affects
+function updateWordCloud(idioms) {
+  // Count frequency of each affect
+  const affectCounts = {};
+  idioms.forEach((idiom) => {
+    if (idiom.affects && Array.isArray(idiom.affects)) {
+      idiom.affects.forEach((affect) => {
+        affectCounts[affect] = (affectCounts[affect] || 0) + 1;
+      });
+    }
+  });
+
+  // Sort by frequency
+  const sortedAffects = Object.entries(affectCounts)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 30); // Top 30 affects
+
+  if (sortedAffects.length === 0) {
+    wordCloudEl.innerHTML =
+      '<em style="color: #999;">No affects data available</em>';
+    return;
+  }
+
+  // Calculate font sizes (min 12px, max 32px)
+  const maxCount = sortedAffects[0][1];
+  const minCount = sortedAffects[sortedAffects.length - 1][1];
+  const fontSizeRange = 20; // 32 - 12 = 20
+
+  // Generate word cloud HTML
+  wordCloudEl.innerHTML = sortedAffects
+    .map(([affect, count]) => {
+      const fontSize =
+        12 +
+        (fontSizeRange * (count - minCount)) / Math.max(maxCount - minCount, 1);
+      const opacity =
+        0.6 + 0.4 * ((count - minCount) / Math.max(maxCount - minCount, 1));
+      return `<span class="word-cloud-word" style="font-size: ${fontSize}px; opacity: ${opacity}; color: #0969da;" title="${count} occurrence${
+        count > 1 ? "s" : ""
+      }">${affect}</span>`;
+    })
+    .join("");
 }
 
 // Streaming NDJSON
@@ -164,6 +208,7 @@ function applyFilters() {
   container.innerHTML = "";
   renderBatch(filtered);
   updateItemCount(filtered.length);
+  updateWordCloud(filtered);
 }
 
 // Load single language
@@ -180,6 +225,7 @@ async function loadLanguage(lang) {
     renderBatch(visibleIdioms.splice(0, visibleIdioms.length));
   }
   updateItemCount(allIdioms.length);
+  updateWordCloud(allIdioms);
 
   const endTime = performance.now();
   console.log(
@@ -202,6 +248,7 @@ async function loadAllLanguages() {
     renderBatch(visibleIdioms.splice(0, visibleIdioms.length));
   }
   updateItemCount(allIdioms.length);
+  updateWordCloud(allIdioms);
 }
 
 // Event listeners
