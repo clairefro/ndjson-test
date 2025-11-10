@@ -43,6 +43,7 @@ async function buildIndex() {
 
   fs.writeFileSync(outputPath, JSON.stringify(index, null, 2));
   console.log(`Index written to ${outputPath}`);
+  console.log(`Body parts indexed: ${Object.keys(index)}`);
 }
 
 buildIndex().catch((err) => console.error("Error building index:", err));
