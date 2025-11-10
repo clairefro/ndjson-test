@@ -41,6 +41,9 @@ async function streamNDJSON(url, onData) {
 
 // Render idiom batch
 function renderBatch(batch) {
+  const startTime = performance.now();
+  console.log(`[renderBatch] Starting render of ${batch.length} items`);
+
   const fragment = document.createDocumentFragment();
   batch.forEach((idiom) => {
     const div = document.createElement("div");
@@ -65,6 +68,11 @@ function renderBatch(batch) {
     fragment.appendChild(div);
   });
   container.appendChild(fragment);
+
+  const endTime = performance.now();
+  console.log(
+    `[renderBatch] Completed in ${(endTime - startTime).toFixed(2)}ms`
+  );
 }
 
 // Open GitHub issue with templated content
@@ -114,6 +122,9 @@ function filterIdioms(query) {
 
 // Load single language
 async function loadLanguage(lang) {
+  const startTime = performance.now();
+  console.log(`[loadLanguage] Starting load for language: ${lang}`);
+
   container.innerHTML = "";
   allIdioms = [];
   visibleIdioms.length = 0;
@@ -124,6 +135,13 @@ async function loadLanguage(lang) {
     renderBatch(visibleIdioms.splice(0, visibleIdioms.length));
   }
   updateItemCount(allIdioms.length);
+
+  const endTime = performance.now();
+  console.log(
+    `[loadLanguage] Completed loading ${allIdioms.length} items in ${(
+      endTime - startTime
+    ).toFixed(2)}ms`
+  );
 }
 
 // Load all languages concurrently
