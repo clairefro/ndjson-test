@@ -1,6 +1,7 @@
 const languages = ["en", "zh", "ja"];
 const container = document.getElementById("idioms-container");
 const searchInput = document.getElementById("search");
+const itemCountEl = document.getElementById("item-count");
 
 // Virtualized render
 const visibleIdioms = [];
@@ -8,6 +9,11 @@ const batchSize = 100;
 
 // Simple in-memory search index
 let allIdioms = [];
+
+// Update item count display
+function updateItemCount(count) {
+  itemCountEl.textContent = `Items: ${count}`;
+}
 
 // Streaming NDJSON
 async function streamNDJSON(url, onData) {
@@ -48,9 +54,43 @@ function renderBatch(batch) {
                     }
                      Meaning: ${idiom.meaning}<br>
                      Tags: ${idiom.tags.join(", ")}`;
+
+    // Add edit button
+    const editBtn = document.createElement("button");
+    editBtn.className = "edit-btn";
+    editBtn.textContent = "Edit";
+    editBtn.onclick = () => openGitHubIssue(idiom);
+    div.appendChild(editBtn);
+
     fragment.appendChild(div);
   });
   container.appendChild(fragment);
+}
+
+// Open GitHub issue with templated content
+function openGitHubIssue(idiom) {
+  const repo = "clairefro/ndjson-test"; // Update with your repo
+  const title = encodeURIComponent(
+    `Edit idiom: ${idiom.idiom} (${idiom.language})`
+  );
+  const body = encodeURIComponent(
+    `## Idiom Details\n\n` +
+      `**Idiom:** ${idiom.idiom}\n` +
+      `**Language:** ${idiom.language}\n` +
+      `${
+        idiom.romanization ? `**Romanization:** ${idiom.romanization}\n` : ""
+      }` +
+      `${idiom.literal ? `**Literal Translation:** ${idiom.literal}\n` : ""}` +
+      `**Meaning:** ${idiom.meaning}\n` +
+      `**Tags:** ${idiom.tags.join(", ")}\n\n` +
+      `## Proposed Changes\n\n` +
+      `<!-- Describe what should be changed and why -->\n\n` +
+      `## Additional Context\n\n` +
+      `<!-- Add any other context about the edit here -->`
+  );
+
+  const url = `https://github.com/${repo}/issues/new?title=${title}&body=${body}`;
+  window.open(url, "_blank");
 }
 
 // Add idiom to buffer and render in batches
@@ -69,22 +109,37 @@ function filterIdioms(query) {
     i.idiom.toLowerCase().includes(query.toLowerCase())
   );
   renderBatch(filtered);
+  updateItemCount(filtered.length);
 }
 
 // Load single language
-function loadLanguage(lang) {
+async function loadLanguage(lang) {
   container.innerHTML = "";
   allIdioms = [];
   visibleIdioms.length = 0;
-  streamNDJSON(`idioms/${lang}.ndjson`, addIdiom);
+  updateItemCount(0);
+  await streamNDJSON(`idioms/${lang}.ndjson`, addIdiom);
+  // Render any remaining idioms
+  if (visibleIdioms.length > 0) {
+    renderBatch(visibleIdioms.splice(0, visibleIdioms.length));
+  }
+  updateItemCount(allIdioms.length);
 }
 
 // Load all languages concurrently
-function loadAllLanguages() {
+async function loadAllLanguages() {
   container.innerHTML = "";
   allIdioms = [];
   visibleIdioms.length = 0;
-  languages.forEach((lang) => streamNDJSON(`idioms/${lang}.ndjson`, addIdiom));
+  updateItemCount(0);
+  await Promise.all(
+    languages.map((lang) => streamNDJSON(`idioms/${lang}.ndjson`, addIdiom))
+  );
+  // Render any remaining idioms
+  if (visibleIdioms.length > 0) {
+    renderBatch(visibleIdioms.splice(0, visibleIdioms.length));
+  }
+  updateItemCount(allIdioms.length);
 }
 
 // Event listeners

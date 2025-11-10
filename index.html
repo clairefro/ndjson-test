@@ -18,6 +18,20 @@
       .idiom {
         padding: 5px;
         border-bottom: 1px solid #eee;
+        position: relative;
+      }
+      .edit-btn {
+        margin-top: 8px;
+        padding: 4px 12px;
+        background-color: #0969da;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .edit-btn:hover {
+        background-color: #0860ca;
       }
       select {
         margin-bottom: 10px;
@@ -36,6 +50,8 @@
     <button id="load-all">Load All Languages</button>
 
     <input type="text" id="search" placeholder="Search idioms..." />
+
+    <div id="item-count" style="margin: 10px 0; font-weight: bold;">Items: 0</div>
 
     <div id="idioms-container"></div>
 
