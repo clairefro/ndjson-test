@@ -85,6 +85,8 @@ async function streamNDJSON(url, onData) {
       if (done) break;
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split("\n");
+      // Remove and save the last element, which may be an incomplete line
+      // that will be completed when the next chunk arrives
       buffer = lines.pop();
 
       for (const line of lines) {
