@@ -114,23 +114,29 @@ function renderBatch(batch) {
     div.innerHTML = `<strong>${idiom.idiom}</strong> (${idiom.language})<br>
                     ${
                       idiom.romanization
-                        ? `<span class="romanization">${idiom.romanization}</span><br>`
+                        ? `<span class="info-romanization">${idiom.romanization}</span><br>`
                         : ""
                     }
                     ${
                       idiom.literal
-                        ? "Translation: " + idiom.literal + "<br>"
+                        ? `<span class="info-translation">Translation: ` +
+                          idiom.literal +
+                          "</span><br>"
                         : ""
                     }
                      Meaning: ${idiom.meaning}<br>
                      ${
                        idiom.body_parts
-                         ? "Body parts: " + idiom.body_parts.join(", ") + "<br>"
+                         ? `<span class="info-body-parts">Body parts: ` +
+                           idiom.body_parts.join(", ") +
+                           "</span><br>"
                          : ""
                      }
                      ${
                        idiom.affects
-                         ? "Affects: " + idiom.affects.join(", ") + "<br>"
+                         ? `<span class="info-affects">Affects: ` +
+                           idiom.affects.join(", ") +
+                           "</span><br>"
                          : ""
                      }`;
 

@@ -78,7 +78,7 @@ input {
   transform: scale(1.1);
 }
 
-.romanization {
+.info-romanization {
   font-style: italic;
   color: #666;
 }
