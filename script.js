@@ -59,7 +59,7 @@ function updateWordCloud(idioms) {
         0.6 + 0.4 * ((count - minCount) / Math.max(maxCount - minCount, 1));
       return `<span class="word-cloud-word" style="font-size: ${fontSize}px; opacity: ${opacity}; color: #0969da;" title="${count} occurrence${
         count > 1 ? "s" : ""
-      }">${affect}</span>`;
+      }">${affect} (${count})</span>`;
     })
     .join("");
 }
