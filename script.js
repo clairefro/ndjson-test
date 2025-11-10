@@ -128,9 +128,11 @@ function renderBatch(batch) {
                     }
                      Meaning: ${idiom.meaning}<br>
                      ${
-                       idiom.body_parts
+                       idiom.body_parts && idiom.body_parts.length > 0
                          ? `<span class="info-body-parts">Body parts: ` +
-                           idiom.body_parts.join(", ") +
+                           idiom.body_parts
+                             .map((part) => `<span class="pill">${part}</span>`)
+                             .join(" ") +
                            "</span><br>"
                          : ""
                      }
