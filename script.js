@@ -143,7 +143,7 @@ function renderBatch(batch) {
                      }
                      ${
                        idiom.affects && idiom.affects.length > 0
-                         ? `<span class="info-affects">A` +
+                         ? `<span class="info-affects">` +
                            idiom.affects
                              .map(
                                (affect) =>
