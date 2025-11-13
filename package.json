@@ -1,0 +1,13 @@
+{
+  "name": "proto-uabi",
+  "version": "1.0.0",
+  "description": "universal atlas of bodily idioms - prototype",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build-index": "node build-index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

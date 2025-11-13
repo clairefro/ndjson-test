@@ -56,6 +56,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
+  max-width: 900px;
 }
 
 .word-cloud-container h3 {
@@ -108,5 +109,6 @@ input {
 
 .top-section {
   display: flex;
-  gap: 1rem;
+  gap: 4rem;
+  /* justify-content: space-between; */
 }
