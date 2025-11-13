@@ -5,13 +5,13 @@
 {"id":"th_5","idiom":"จับมือกัน","romanization":"jàp mue gan","language":"th","literal":"hold hands together","meaning":"to cooperate or help each other","body_parts":["hand"],"affects":["helpfulness","cooperation"]}
 {"id":"th_6","idiom":"หัวเสีย","romanization":"hǔa sǐa","language":"th","literal":"head spoiled","meaning":"to get angry or frustrated","body_parts":["head"],"affects":["anger","frustration"]}
 {"id":"th_7","idiom":"เขย่งปลายเท้า","romanization":"khà-yèng bplāi tháo","language":"th","literal":"stand on tiptoe","meaning":"to try hard to see or reach something","body_parts":["foot"],"affects":["effort","curiosity"]}
-{"id":"th_8","idiom":"คิ้วขมวด","romanization":"khíw khà-muàt","language":"th","literal":"furrow eyebrows","meaning":"to frown or worry","body_parts":["eyebrows"],"affects":["concern","stress"]}
+{"id":"th_8","idiom":"คิ้วขมวด","romanization":"khíw khà-muàt","language":"th","literal":"furrow eyebrows","meaning":"to frown or worry","body_parts":["eyebrow"],"affects":["concern","stress"]}
 {"id":"th_9","idiom":"หูผึ่ง","romanization":"hǔu phʉ̂ng","language":"th","literal":"ears perk up","meaning":"to listen attentively or become alert","body_parts":["ear"],"affects":["attention","alertness"]}
 {"id":"th_10","idiom":"ใจเย็น","romanization":"jai yen","language":"th","literal":"cool heart","meaning":"to stay calm under pressure","body_parts":["heart"],"affects":["calmness","composure"]}
 {"id":"th_11","idiom":"กัดฟัน","romanization":"gàt fan","language":"th","literal":"bite teeth","meaning":"to endure hardship or persevere","body_parts":["teeth"],"affects":["determination","resilience"]}
 {"id":"th_12","idiom":"ลูบหัว","romanization":"lûup hǔa","language":"th","literal":"pat head","meaning":"to comfort or show affection","body_parts":["head"],"affects":["comfort","affection"]}
 {"id":"th_13","idiom":"ตั้งท้อง","romanization":"dtâng tháawng","language":"th","literal":"stand stomach","meaning":"to carry a secret or responsibility","body_parts":["stomach"],"affects":["burden","responsibility"]}
-{"id":"th_14","idiom":"ยกคิ้ว","romanization":"yók khíw","language":"th","literal":"raise eyebrow","meaning":"to express surprise or doubt","body_parts":["eyebrows"],"affects":["surprise","skepticism"]}
+{"id":"th_14","idiom":"ยกคิ้ว","romanization":"yók khíw","language":"th","literal":"raise eyebrow","meaning":"to express surprise or doubt","body_parts":["eyebrow"],"affects":["surprise","skepticism"]}
 {"id":"th_15","idiom":"หัวเราะลั่น","romanization":"hǔa rór lan","language":"th","literal":"head laugh loudly","meaning":"to laugh heartily","body_parts":["head"],"affects":["joy","amusement"]}
 {"id":"th_16","idiom":"ชี้หน้า","romanization":"chîi nâa","language":"th","literal":"point face","meaning":"to accuse or blame someone","body_parts":["face"],"affects":["blame","accusation"]}
 {"id":"th_17","idiom":"อกหัก","romanization":"òk hàk","language":"th","literal":"chest broken","meaning":"to feel heartbroken","body_parts":["chest"],"affects":["sadness","grief"]}
