@@ -64,7 +64,6 @@ function updateWordCloud(idioms) {
     .join("");
 }
 
-// Streaming NDJSON
 async function streamNDJSON(url, onData) {
   try {
     console.log(`[streamNDJSON] Fetching: ${url}`);
@@ -85,7 +84,7 @@ async function streamNDJSON(url, onData) {
       if (done) break;
       buffer += decoder.decode(value, { stream: true });
       const lines = buffer.split("\n");
-      // Remove and save the last element, which may be an incomplete line
+      // remove and save the last element, which may be an incomplete line
       // that will be completed when the next chunk arrives
       buffer = lines.pop();
 
@@ -204,7 +203,6 @@ function openGitHubIssue(idiom) {
   window.open(url, "_blank");
 }
 
-// Add idiom to buffer and render in batches
 function addIdiom(idiom) {
   allIdioms.push(idiom);
   visibleIdioms.push(idiom);
@@ -213,7 +211,6 @@ function addIdiom(idiom) {
   }
 }
 
-// Combined filtering (search + body parts)
 function applyFilters() {
   const query = searchInput.value.toLowerCase();
   const selectedBodyParts = Array.from(bodyFilter.selectedOptions).map(
@@ -235,7 +232,6 @@ function applyFilters() {
   updateWordCloud(filtered);
 }
 
-// Load single language
 async function loadLanguage(lang) {
   const startTime = performance.now();
   console.log(`[loadLanguage] Starting load for language: ${lang}`);
@@ -259,7 +255,6 @@ async function loadLanguage(lang) {
   );
 }
 
-// Load all languages concurrently
 async function loadAllLanguages() {
   container.innerHTML = "";
   allIdioms = [];
@@ -275,7 +270,6 @@ async function loadAllLanguages() {
   updateWordCloud(allIdioms);
 }
 
-// Event listeners
 languageSelect.addEventListener("change", (e) => loadLanguage(e.target.value));
 document.getElementById("load-all").addEventListener("click", loadAllLanguages);
 searchInput.addEventListener("input", applyFilters);
@@ -286,7 +280,6 @@ clearFiltersBtn.addEventListener("click", () => {
   applyFilters();
 });
 
-// Initial load - ensure DOM is ready
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => loadLanguage("en"));
 } else {
